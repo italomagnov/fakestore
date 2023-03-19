@@ -2,7 +2,7 @@
 
 <template>
     <div class="flex flex-col gap-4">
-        <h2 class="font-semibold text-lg">Metódo de Pagamento</h2>
+        <h2 class="font-semibold text-lg">Método de Pagamento</h2>
         <div class="w-full flex justify-around bg-white px-8 py-4">
             <div class="flex gap-2">
                 <input
