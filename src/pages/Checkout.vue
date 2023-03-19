@@ -7,9 +7,11 @@ import TheHeader from '../components/Header/TheHeader.vue';
 
 <template>
     <TheHeader />
-    <section class="h-screen bg-gray-100 font-saira">
+    <section class="h-screen bg-gray-100 font-saira px-8">
         <div class="max-w-5xl mx-auto pt-8 flex flex-col justify-between gap-4">
-            <div class="w-full flex justify-between gap-8">
+            <div
+                class="w-full flex justify-between gap-8 max-md:flex max-md:flex-col"
+            >
                 <InputDate />
                 <PaymentCart />
             </div>

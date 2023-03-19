@@ -22,7 +22,9 @@ const numeroPreco = (valor) => {
 </script>
 
 <template>
-    <div class="w-2/4 h-[386px] flex flex-col gap-4">
+    <div
+        class="w-2/4 h-[386px] flex flex-col gap-4 max-md:flex-col max-md:w-full"
+    >
         <h2 class="font-semibold text-lg">Itens no Carrinho</h2>
         <div class="w-full bg-white px-8 py-4 overflow-auto">
             <div

@@ -20,10 +20,12 @@ const numeroPreco = (valor) => {
 </script>
 
 <template>
-    <section class="bg-gray-100 h-screen">
+    <section class="bg-gray-100 px-8">
         <div class="max-w-5xl mx-auto pt-8">
             <h1 class="font-semibold">TODOS OS PRODUTOS</h1>
-            <div class="flex flex-wrap items-start justify-start gap-8 py-4">
+            <div
+                class="flex flex-wrap items-start justify-start gap-8 py-4 max-md:justify-center"
+            >
                 <ProductCard
                     v-for="product in products"
                     :key="product.id"
