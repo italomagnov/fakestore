@@ -1,10 +1,17 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 import { computed } from 'vue';
-import { useStore, mapActions } from 'vuex';
+import { useStore } from 'vuex';
 
 const store = useStore();
+
 const shoppingCart = computed(() => store.state.cart.cart);
+
+const removeProduct = (id) => store.dispatch('removeProduct', id);
+
+function remove(id) {
+    removeProduct(id);
+}
 
 defineProps({
     toggle: Boolean,
@@ -15,12 +22,14 @@ const total = computed(() => {
     shoppingCart.value.forEach((item) => {
         total += item.price * item.quantidade;
     });
-    return total.toFixed(2);
+    return total;
 });
 
-const { removeProduct } = mapActions(['removeProduct']);
-const handleRemoveProduct = (id) => {
-    removeProduct(id);
+const numeroPreco = (total) => {
+    return total.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+    });
 };
 </script>
 
@@ -49,7 +58,7 @@ const handleRemoveProduct = (id) => {
                                 {{ item.name }}
                             </p>
                             <button
-                                @click="handleRemoveProduct(item.id)"
+                                @click="remove(item.id)"
                                 class="w-full bg-red-400 px-2 py-1 text-white mt-1"
                             >
                                 remover
@@ -70,7 +79,7 @@ const handleRemoveProduct = (id) => {
                 v-if="shoppingCart.length !== 0"
             >
                 <span class="text-lg font-semibold pb-4"
-                    >Total: R$ {{ total }}</span
+                    >Total: R$ {{ numeroPreco(total) }}</span
                 >
                 <RouterLink
                     to="/checkout"

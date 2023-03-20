@@ -10,11 +10,11 @@ const total = computed(() => {
     itemsInCart.value.forEach((item) => {
         total += item.price * item.quantidade;
     });
-    return total.toFixed(2);
+    return total;
 });
 
-const numeroPreco = (valor) => {
-    return valor.toLocaleString('pt-BR', {
+const numeroPreco = (total) => {
+    return total.toLocaleString('pt-BR', {
         style: 'currency',
         currency: 'BRL',
     });

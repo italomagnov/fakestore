@@ -12,11 +12,11 @@ export default {
             }
         },
         removeProduct(state, id) {
-            const produto = state.cart.find(({ id: pid }) => pid === id);
+            const produto = state.cart.find((item) => item.id === id);
             if (produto !== undefined) {
                 produto.quantidade--;
                 if (produto.quantidade === 0) {
-                    state.cart = state.cart.filter(({ id: pid }) => pid !== id);
+                    state.cart = state.cart.filter((item) => item.id !== id);
                 }
             }
         },
